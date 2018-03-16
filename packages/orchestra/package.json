@@ -1,0 +1,17 @@
+{
+  "name": "orchestra",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "leaf": "^1.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-loadable": "^5.3.1"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --mode development",
+    "build:webpack": "webpack --mode production"
+  }
+}
