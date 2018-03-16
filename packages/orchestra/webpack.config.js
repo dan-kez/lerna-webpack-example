@@ -6,8 +6,8 @@ module.exports = {
     main: './src/index.jsx',
   },
   output: {
-    filename: '[name].[hash].js',
-    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
   },
   resolve: {
     modules: [
@@ -45,5 +45,18 @@ module.exports = {
         ],
       },
     ],
+  },
+  optimization: {
+    splitChunks: {
+      name: true,
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/](?!leaf|async-leaf)/,
+          name: 'commons',
+          priority: -20,
+          chunks: 'all',
+        },
+      },
+    },
   },
 };

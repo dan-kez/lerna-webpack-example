@@ -4,7 +4,7 @@ import Leaf from 'leaf';
 import Loadable from 'react-loadable';
 
 const LoadableComponent = Loadable({
-  loader: () => import('async-leaf'),
+  loader: () => import(/* webpackChunkName: 'async-leaf' */ 'async-leaf'),
   delay: 5000,
   loading() {
     return (
@@ -14,9 +14,6 @@ const LoadableComponent = Loadable({
     );
   },
 });
-
-// / WEBPACK COMMENT
-
 
 const container = document.createElement('div');
 container.setAttribute('id', 'dynamic-react-root');
