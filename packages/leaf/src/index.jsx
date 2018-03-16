@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Leaf = () => (<div> leaf! v 0.1.1</div>);
+const Leaf = () => (<div>Sync leaf!</div>);
 
 export default Leaf;

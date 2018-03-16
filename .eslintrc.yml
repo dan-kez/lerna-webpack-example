@@ -1,7 +1,10 @@
 parser: babel-eslint
 extends:
   - airbnb
+plugins:
+  - jest
 env:
   browser: true
+  jest/globals: true
 globals:
   jsdom: false
