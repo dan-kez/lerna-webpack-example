@@ -1,8 +1,11 @@
 {
-  "name": "async-leaf",
-  "version": "1.0.0",
+  "name": "@dkez/async-leaf",
+  "version": "0.0.1",
   "main": "lib/index.js",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "react": "^16.2.0"
   }

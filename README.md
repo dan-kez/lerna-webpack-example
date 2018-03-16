@@ -1,6 +1,6 @@
 # lerna-webpack-example
 
-This repo provides an example configuration for a monorepo using lerna. There are a few features
+This repository provides an example configuration for a monorepo using [lerna](https://github.com/lerna/lerna). There are a few features
 baked into this relatively simple app.
 
 1. Monorepo code splitting via [lerna](https://github.com/lerna/lerna)
@@ -11,19 +11,37 @@ baked into this relatively simple app.
 
 1. Code splitting and asynchronous loading.
 
+1. Using "external" & code splitting to only load the code necessary
+
+## Code splitting + Routing example
+
+This is useful pattern for upgrading older sites that rely on page redirects (e.g. django).
+We use this at Klaviyo to incrementally add react pages in a well factored way.
+
+The navigation links on the main django site use 'hard' page redirects to reload the entire page.
+on load of the page, the main.js bundle is loaded. If the current route matches in orchestra/src/index.js
+we then load the associated package and only that package to render.
+
 ## Commands
+
+* [Bootstrap](https://github.com/lerna/lerna#bootstrap) all dependencies. This will hoist shared packages to the root dir for a faster install. It will also link your dependencies together via symlinks.
+    > **NOTE - do not use yarn install**
+
+    ```BASH
+    yarn bootstrap
+    ```
 
 * Start a dev server. This will run babel in all packages and developer mode webpack in any package that has a `dev` script.
     ```BASH
     yarn dev
     ```
 
-* Build all babel & webpack builds across all packages
+* Build babel & webpack across all packages
     ```BASH
     yarn build
     ```
 
-* Lint all of the packages
+* Lint all packages
     ```BASH
     yarn lint
     ```

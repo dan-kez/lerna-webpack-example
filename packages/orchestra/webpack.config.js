@@ -25,6 +25,10 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html',
     }),
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './async/index.html',
+    }),
   ],
   module: {
     rules: [

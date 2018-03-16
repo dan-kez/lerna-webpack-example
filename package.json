@@ -29,8 +29,9 @@
 				"prebuild": "lerna exec --parallel -- rimraf lib dist",
 				"bootstrap": "lerna bootstrap --use-workspaces",
 				"dev": "concurrently \"yarn watch\" \"lerna run dev --stream\"",
-				"lint": "lerna exec --parallel -- eslint .",
+				"lint": "lerna exec --parallel -- eslint src",
 				"build": "lerna exec --parallel -- babel src -d lib --config-file ../../.babelrc && lerna run build:webpack",
+				"release": "yarn lint && yarn build && lerna publish",
 				"watch": "lerna exec --parallel -- babel src -d lib --config-file ../../.babelrc -w"
 		}
 }
