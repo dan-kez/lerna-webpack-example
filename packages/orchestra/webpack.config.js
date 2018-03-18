@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js',
+    publicPath: '/lerna-webpack-example/'
   },
   resolve: {
     modules: [
@@ -19,15 +20,16 @@ module.exports = {
     noInfo: true,
     port: 3000,
     open: true,
+    publicPath: '/lerna-webpack-example'
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './index.html',
+      filename: 'index.html',
     }),
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './async/index.html',
+      filename: 'async/index.html',
     }),
   ],
   module: {
@@ -53,14 +55,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       name: true,
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/](?!leaf|async-leaf)/,
-          name: 'commons',
-          priority: -20,
-          chunks: 'all',
-        },
-      },
+      chunks: 'all',
     },
   },
 };
