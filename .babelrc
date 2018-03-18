@@ -17,5 +17,27 @@
   ],
   "plugins": [
     "syntax-dynamic-import"
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "shippedProposals": true,
+            "comments": true,
+            "targets": {
+              "browsers": [
+                "last 2 versions"
+              ]
+            }
+          }
+        ],
+        "@babel/preset-react"
+      ],
+      "plugins": [
+        "syntax-dynamic-import"
+      ]
+    }
+  }
 }
