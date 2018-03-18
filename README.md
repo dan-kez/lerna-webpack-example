@@ -27,7 +27,7 @@ we then load the associated package and only that package to render.
 ## Commands
 
 * [Bootstrap](https://github.com/lerna/lerna#bootstrap) all dependencies. This will hoist shared packages to the root dir for a faster install. It will also link your dependencies together via symlinks.
-    > **NOTE - do not use yarn install**
+    > **NOTE - use yarn install on the root repository first to install the necessary devdependencies (lerna)**
 
     ```BASH
     yarn bootstrap
