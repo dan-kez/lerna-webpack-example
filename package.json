@@ -43,7 +43,6 @@
 				"release": "yarn lint && yarn build && lerna publish",
 				"watch": "yarn build:babel -- -w",
 				"predeploy": "yarn build",
-				"deploy": "gh-pages -d packages/orchestra/dist",
-				"watch": "lerna exec --parallel -- babel src -d lib --config-file ../../.babelrc -w"
+				"deploy": "gh-pages -d packages/orchestra/dist"
 		}
 }

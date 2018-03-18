@@ -1,5 +1,7 @@
 # lerna-webpack-example
 
+[DEMO](https://dmk255.github.io/lerna-webpack-example/)
+
 This repository provides an example configuration for a monorepo using [lerna](https://github.com/lerna/lerna). There are a few features
 baked into this relatively simple app.
 
