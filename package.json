@@ -1,5 +1,6 @@
 {
 		"private": true,
+		"homepage": "https://dmk255.github.io/lerna-webpack-example/",
 		"workspaces": [
 				"packages/*"
 		],
@@ -20,6 +21,7 @@
 				"eslint-plugin-jest": "^21.15.0",
 				"eslint-plugin-jsx-a11y": "^6.0.3",
 				"eslint-plugin-react": "^7.7.0",
+				"gh-pages": "^1.1.0",
 				"html-loader": "^0.5.5",
 				"html-webpack-plugin": "^3.0.6",
 				"jest": "^22.4.2",
@@ -39,6 +41,9 @@
 				"build:webpack": "lerna run build:webpack",
 				"build": "yarn build:babel && yarn build:webpack",
 				"release": "yarn lint && yarn build && lerna publish",
-				"watch": "yarn build:babel -- -w"
+				"watch": "yarn build:babel -- -w",
+				"predeploy": "yarn build",
+				"deploy": "gh-pages -d packages/orchestra/dist",
+				"watch": "lerna exec --parallel -- babel src -d lib --config-file ../../.babelrc -w"
 		}
 }
