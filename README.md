@@ -15,14 +15,32 @@ baked into this relatively simple app.
 
 1. Using "external" & code splitting to only load the code necessary
 
+1. A mix of TypeScript and Javascript packages (to show a transitional state)
+
 ## Code splitting + Routing example
 
 This is useful pattern for upgrading older sites that rely on page redirects (e.g. django).
 We use this at Klaviyo to incrementally add react pages in a well factored way.
 
 The navigation links on the main django site use 'hard' page redirects to reload the entire page.
-on load of the page, the main.js bundle is loaded. If the current route matches in orchestra/src/index.js
+on load of the page, the main.js bundle is loaded. If the current route matches in router/src/index.js
 we then load the associated package and only that package to render.
+
+## Typescript implementation
+
+This example repository uses[@babel/plugin-transform-typescript](https://babeljs.io/docs/en/babel-preset-typescript) to compile typescript files at webpack build time. Note that this does not do any type checking. Instead we rely on the typescript compiler for type checking.
+
+This has some benefits:
+
+1. You can write TS files and have fast hot reloading in the browser (relative to TS compilation)
+
+1. Your IDE (e.g VSCODE) can report on typing errors. Alternatively run `yarn tsc -b` to build / type check your packages.
+
+This also has some drawbacks / caveats:
+
+1. More build complexity with additional tools
+
+1. You need to have CI to ensure your types are being honored before deploy.
 
 ## Commands
 
@@ -33,19 +51,25 @@ we then load the associated package and only that package to render.
     yarn bootstrap
     ```
 
-* Start a dev server. This will run babel in all packages and developer mode webpack in any package that has a `dev` script.
+* Start a dev server. This will run webpack in any package that has a `dev` script.
     ```BASH
     yarn dev
     ```
 
-* Build babel & webpack across all packages
+* Build webpack across all packages
     ```BASH
     yarn build
     ```
 
-* Lint all packages
+* Lint all JS packages
     ```BASH
     yarn lint
+    ```
+
+
+* Lint all TS packages
+    ```BASH
+    yarn lint:ts
     ```
 
 ## Directory structure
@@ -64,7 +88,7 @@ we then load the associated package and only that package to render.
 │   │   ├── package.json
 │   │   └── src
 │   │       └── index.jsx
-│   └── orchestra           // Web facing package
+│   └── router              // Web facing package
 │       ├── package.json
 │       ├── src
 │       │   ├── index.html

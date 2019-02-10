@@ -3,7 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/index.jsx',
+    main: './src/index.tsx',
   },
   output: {
     filename: '[name].js',
@@ -14,13 +14,15 @@ module.exports = {
     modules: [
       'node_modules',
     ],
-    symlinks: false,
+    extensions: ['.ts', '.tsx', '.js', '.json'],
+    symlinks: true,
   },
   devServer: {
     noInfo: true,
     port: 3000,
     open: true,
-    publicPath: '/lerna-webpack-example'
+    publicPath: '/lerna-webpack-example',
+    openPage: 'lerna-webpack-example',
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -35,10 +37,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(tsx?)|(jsx?)$/,
         exclude: /node_modules/,
         use: {
           loader: require.resolve('babel-loader'),
+          options: {
+            rootMode: 'upward',
+          },
         },
       },
       {

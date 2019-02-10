@@ -1,21 +1,21 @@
 {
-  "name": "@dkez/orchestra",
-  "version": "0.0.2",
-  "main": "lib/index.js",
+  "name": "@dkez/router",
+  "version": "0.0.3",
+  "main": "src/index.tsx",
   "license": "MIT",
+  "private": true,
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "@dkez/async-leaf": "^0.0.2",
     "@dkez/leaf": "^0.0.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-loadable": "^5.3.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-router-dom": "^4.2.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
+    "dev": "webpack-dev-server --mode development --color",
     "build:webpack": "webpack --mode production"
   }
 }
