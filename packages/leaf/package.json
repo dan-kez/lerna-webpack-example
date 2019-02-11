@@ -1,13 +1,14 @@
 {
   "name": "@dkez/leaf",
   "version": "0.0.2",
-  "main": "lib/index.js",
+  "main": "src/index.tsx",
   "license": "MIT",
+  "private": true,
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   }
 }

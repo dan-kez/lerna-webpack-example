@@ -1,0 +1,14 @@
+{
+    "extends": "../../tsconfig.settings.json",
+    "compilerOptions": {
+      "rootDir": "src",
+      "outDir": "tsclib",
+      "baseUrl": "src",
+      "module": "esnext"
+    },
+    "include": ["./src/"],
+    "references": [
+      { "path": "../leaf"}
+    ]
+  }
+  
